@@ -1,0 +1,70 @@
+﻿@model NewLaunch.Models.Restaurant
+@{
+    ViewBag.Title = "Home Page";
+
+    var txt = "Fim da Votação!! Restaurante escolhido para " + String.Format("{0:d}", DateTime.Now.Date) + " é :";
+
+
+    //@Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+    var isVoteActive = false;
+    if (DateTime.Now.Hour < 12)
+    {
+        isVoteActive = true;
+        txt = "Votação Ativa";
+    }
+}
+
+@using (Html.BeginForm())
+{
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
+                </div>
+                <div class="modal-body">
+                    <h3 class="modal-title">@Html.DisplayFor(model => model.Name, new { @class = "control-label col-md-2" })</h3>
+                </div>
+                <div class="col-md-12" align="center">
+                    <img src=@Html.DisplayFor(model=>model.LinkImage) class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                </div>
+
+                <div class="col-md-12" align="left">
+                   <p><b>Total de Votos:  @Html.DisplayFor(model=>model.CountVoted)</b> </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="jumbotron">
+    <p>
+        <img style="margin:0px auto;display:block" src="~/Images/restaurante.jpg" alt="Smiley face" height="360" width="360">
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @if (isVoteActive)
+        {
+            <div class="col-md-11 text-center">
+                <input type="submit" class="btn btn-large btn-primary" value="Vote!!!" onclick="window.location='/voted/index/voted';">
+            </div>
+        }
+        else
+        {
+            <h2>@txt</h2>
+            <div class="col-md-11 text-center">
+                <button type="button" class="btn btn-large btn-primary" data-toggle="modal" data-target="#myModal"> >> See the result << </button>
+            </div>
+        }
+    </div>
+</div>

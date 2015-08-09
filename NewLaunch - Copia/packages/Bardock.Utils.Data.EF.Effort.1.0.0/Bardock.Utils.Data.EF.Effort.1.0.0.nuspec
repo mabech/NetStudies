@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Bardock.Utils.Data.EF.Effort</id>
+    <version>1.0.0</version>
+    <title>Bardock.Utils.Data.EF.Effort</title>
+    <authors>bardock</authors>
+    <owners>bardock</owners>
+    <projectUrl>https://github.com/bardock/DotNet.Utils</projectUrl>
+    <iconUrl>https://avatars2.githubusercontent.com/u/1980715?s=128</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Effort (Entity Framework) utilities</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>entity framework effort exceptions mapper</tags>
+    <dependencies>
+      <dependency id="Effort.EF6" version="1.1.0" />
+      <dependency id="Bardock.Utils.Data.EF" version="1.0.3" />
+      <dependency id="Bardock.Utils" version="2.2.6" />
+    </dependencies>
+  </metadata>
+</package>
